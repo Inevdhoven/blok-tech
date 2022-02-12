@@ -10,3 +10,4 @@ app.listen(3000)
 
 
 console.log(camelCase('foo-bar'));
+console.log(camelCase('ine-van-den-hoven'));
