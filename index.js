@@ -14,7 +14,13 @@ app.get('/signup', onSignUp)
 app.get('/login', onLogIn)
 
 function onHome(req, res) {
-    res.render('home');
+    res.render('home', {
+        post: {
+            author: 'Ine van den Hoven',
+            age: '22',
+            comments: []
+        }
+    });
 }
 
 function onSignUp(req, res) {
