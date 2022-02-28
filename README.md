@@ -12,7 +12,7 @@ In dit stukje wil ik je laten weten hoe je Bookbuddy moet installeren en wat je 
 Alle informatie over de matching app en over wat ik heb gedaan kun je lezen in mijn [Wiki](https://github.com/Inevdhoven/blok-tech/wiki). In de Wiki ga ik meer in op wat voor matching app het is, laat ik zien hoe de vormgeving eruit moet komen te zien en kun je hier lezen over het onderzoek dat ik heb gedaan.
 
 ## Code of Conduct
-Voor meer informatie over hoe ik graag zou willen dat jullie met mijn project omgaan, kun je lezen in mijn [Code of Conduct](https://github.com/Inevdhoven/blok-tech/CODE_OF_CONDUCT.md).
+Voor meer informatie over hoe ik graag zou willen dat jullie met mijn project en met elkaar omgaan, kun je lezen mijn [Code of Conduct](https://github.com/Inevdhoven/blok-tech/CODE_OF_CONDUCT.md) lezen.
 
 ## License
 De license die voor Bookbuddy word gebruikt is MIT. Meer informatie over de MIT license kun je [hier](https://github.com/Inevdhoven/blok-tech/blob/main/license) lezen.
