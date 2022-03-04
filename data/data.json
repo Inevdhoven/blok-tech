@@ -1,11 +1,28 @@
-const data = [
+[
     {
+        "people": [
+                {
+                    "name": "Ine",
+                    "age": 22,
+                    "comments": [
+                        "Comment 1",
+                        "Comment 2",
+                        "Comment 3"
+                    ]
+                }
+            ]
+        },
+        {
         "name": "Ine",
         "age": 22,
         "posts": [
             {
                 "id": 111,
-                "content": "Dit is een post"
+                "comments":[
+                    "Comment 1",
+                    "Comment 2",
+                    "Comment 3"
+                ]
             }
         ]
     },
@@ -20,5 +37,3 @@ const data = [
         ]
     }
 ]
-
-module.exports = data;
