@@ -1,0 +1,24 @@
+const data = [
+    {
+        "name": "Ine",
+        "age": 22,
+        "posts": [
+            {
+                "id": 111,
+                "content": "Dit is een post"
+            }
+        ]
+    },
+    {
+        "name": "Sophie",
+        "age": 22,
+        "posts": [
+            {
+                "id": 112,
+                "content": "Dit is een post"
+            }
+        ]
+    }
+]
+
+module.exports = data;
