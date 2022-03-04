@@ -139,6 +139,10 @@ input[type="submit"] {
     float: right;
 }
 
+#signup form {
+    margin-top: 500px;
+}
+
 #signup fieldset:last-child legend {
     display: none; 
 }
