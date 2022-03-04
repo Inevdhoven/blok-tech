@@ -15,12 +15,28 @@
     <p>Ine is {{post.age}} years old.</p>
     {{!-- Condition  --}}
     {{#if post.comments}}
+    {{#each post.comments}}
     <ul>
-        <li>This needs to be a comment.</li>
+        <li>{{this}}</li>
     </ul>
+    {{/each}}
     {{else}}
     <ul>
         <li>Be the first to comment on this post.</li>
     </ul>
     {{/if}}
 </div>
+
+<div>
+    <ul>
+        {{#each people}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+</div>
+
+<form action="/accountaangemaakt" method="POST" >
+    Naam: <input type="text" name="user">
+    Wachtwoord: <input type="password" name="password">
+    <input type="submit" value="Signup">
+</form>
