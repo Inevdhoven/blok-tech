@@ -1,39 +1,15 @@
-[
-    {
-        "people": [
-                {
-                    "name": "Ine",
-                    "age": 22,
-                    "comments": [
-                        "Comment 1",
-                        "Comment 2",
-                        "Comment 3"
-                    ]
-                }
-            ]
+
+{
+    "people": [
+        {
+            "name": "Ine",
+            "email": "ine@gmail.com",
+            "password": "test"
         },
         {
-        "name": "Ine",
-        "age": 22,
-        "posts": [
-            {
-                "id": 111,
-                "comments":[
-                    "Comment 1",
-                    "Comment 2",
-                    "Comment 3"
-                ]
-            }
-        ]
-    },
-    {
-        "name": "Sophie",
-        "age": 22,
-        "posts": [
-            {
-                "id": 112,
-                "content": "Dit is een post"
-            }
-        ]
-    }
-]
+            "name": "Pip",
+            "email": "pip@gmail.com",
+            "password": "test123"
+        }
+    ]
+}
