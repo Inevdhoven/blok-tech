@@ -17,31 +17,54 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.post('/accountaangemaakt',(req, res)=> {
+app.post('/accountaangemaakt', (req, res) => {
     try {
-        // database logic schrijven..
-        res.send('Naam: ' +req.body.user +' en wachtwoord: ' +req.body.password);   
+        res.send('Email: ' + req.body.email +' en wachtwoord: ' + req.body.password);
     } catch (error) {
-        throw new Error(error)
+        throw new Error(error);
     }
 });
 
+const data = JSON.parse(JSON.stringify(myData));
+const people = data.people;
+
+app.post('/ingelogd', (req, res) => {
+    try {
+        // database logic schrijven..
+        // res.send('Email: ' +req.body.email +' en wachtwoord: ' +req.body.password);
+        
+        const first = req.body.email == people[0].email & req.body.password == people[0].password;
+        const second = req.body.email == people[1].email & req.body.password == people[1].password;
+
+        if( first || second) {
+            res.send('Je bent ingelogd');  
+        } else {
+            res.send('Probeer het nog een keer');
+        }
+
+    } catch (error) {
+        throw new Error(error);
+    }
+});
+
+// console.log(people[0].name)
+
 app.get('/', (req, res) => {
-    res.render('home', myData);
+    res.render('home', {data, title: 'BookBuddy'});
 });
 
 app.get('/signup', (req, res) => {
-    res.render('signup', { title: 'Signup - BookBuddy'});
+    res.render('signup', {data, title: 'Signup - BookBuddy'});
 });
 
 app.get('/login', (req, res) => {
-    res.render('login', { title: 'Login - BookBuddy'});
+    res.render('login', {data, title: 'Login - BookBuddy'});
 });
 
 app.use((req, res, next) => {
     res.status(404).send('404 page not found');
-})
+});
 
 app.listen(PORT, () => {
     console.log('app running on port', PORT);
-})
+});
