@@ -1,15 +1,20 @@
 <main>
     {{>header}}
     <section>
-        <form>
+        <form action="/ingelogd" method="POST">
             <fieldset>
                 <legend>Login</legend>
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" required>
                 <label for="password">Wachtwoord</label>
                 <input type="password" name="password" id="password" required>
-                <input type="submit" value="Login">
+                <input type="submit" value="Login" id="login">
             </fieldset>
         </form>
     </section>
 </main>
+
+<div class="random">
+    <h3>Posted by {{data.people.0.name}}</h3>
+    <p>Ine is {{data.people.1.email}} years old.</p> 
+</div>
