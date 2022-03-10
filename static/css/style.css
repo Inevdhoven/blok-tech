@@ -26,7 +26,7 @@ body::before {
     background-position: center;
     width: 100%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
@@ -69,6 +69,10 @@ a, input[type="submit"] {
     text-decoration: none;
 }
 
+input[type="submit"]:focus {
+    border: none;
+}
+
 main {
     display: flex;
 }
@@ -80,6 +84,15 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+section:first-of-type {
+    position: fixed;
+}
+
+section:last-of-type {
+    position: absolute;
+    right: 0;
 }
 
 div, form {
@@ -125,13 +138,28 @@ input {
     background-color: var(--bleu-gray);
     width: 100%;
     height: 40px;
+    padding: 0 10px;
     border: none;
     border-radius: 10px;
     display: block;
+    margin-bottom: 1em;
+}
+
+input:active, input:focus {
+    outline: 0;
+    border: 2px solid var(--turquoise);
 }
 
 input:first-of-type {
     margin-bottom: 1em;
+}
+
+.error {
+    border: 2px solid var(--red);
+}
+
+.success {
+    border: 2px solid greenyellow;
 }
 
 input[type="submit"] {
@@ -139,13 +167,13 @@ input[type="submit"] {
     float: right;
 }
 
-#signup form {
-    margin-top: 500px;
-}
+/* #signup form {
+    margin-top: 200px;
+} */
 
-#signup fieldset:last-child legend {
+/* #signup fieldset:last-child legend {
     display: none; 
-}
+} */
 
 #signup fieldset:nth-child(2) {
     width: 100%;
@@ -207,6 +235,14 @@ input[type="submit"] {
     margin-bottom: 1em;
 }
 
-.random {
+#signup form fieldset:first-child p,
+#login form p{
+    display: none;
+}
+
+#signup form fieldset:first-child p.errormessage,
+#login form p.errormessage {
+    margin-bottom: 10px;
     display: block;
+    color: var(--red);
 }
