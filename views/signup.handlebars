@@ -1,20 +1,24 @@
 <main id="signup">
     {{>header}}
     <section>
-        <form action="" method="">
+        <form action="/accountaangemaakt" method="POST" id="formsignup">
             <fieldset>
                 <legend>Signup</legend>
                 <label for="name">Naam</label>
-                <input type="text" name="user" id="name" required>
+                <input type="text" name="user" id="name">
+                <p class="messagename">Er is geen naam ingevuld.</p>
                 <label for="email">E-mail</label>
-                <input type="email" name="email" id="email" required>
+                <input type="email" name="email" id="email">
+                <p class="messageemail">Er is geen geldig emailadres ingevuld.</p>
                 <label for="password">Wachtwoord</label>
                 <input type="password" name="password" id="password">
                 <label for="confirm_password">Herhaal wachtwoord</label>
                 <input type="password" name="confirm_password" id="confirm_password">
+                <p class="messagepassword">Het wachtwoord dat is ingevuld is niet hetzelfde.</p>
+                <input type="submit" value="Signup" id="singup">
                 {{!-- <input type="submit" value="Volgende"> --}}
-            </fieldset>
-            <fieldset>
+            </fieldset> 
+            {{!-- <fieldset>
                 <legend>Kies je favoriete genres:</legend>
                 <p>
                     <label for="action">Action</label>
@@ -72,15 +76,15 @@
                     <label for="biographiesautobiographies">Biographies/ Autobiographies</label>
                     <input type="checkbox" name="biographiesautobiographies" id="biographiesautobiographies"/>
                 </p>
-                {{!-- <input type="submit" value="Volgende"> --}}
-            </fieldset>
-            <fieldset>
+                <input type="submit" value="Volgende">
+            </fieldset> --}}
+            {{!-- <fieldset>
                 <legend>Voeg 3 favoriete boeken toe:</legend>
                 <label for="search">Voeg 3 favoriete boeken toe:</label>
                 <input type="text" placeholder="Zoek titels..." name="search">
                 <button type="submit">Zoek</button>
                 <input type="submit" value="Signup" id="singup">
-            </fieldset>
+            </fieldset>  --}}
         </form>
     </section>
 </main>
