@@ -7,7 +7,6 @@ const multer  = require('multer');
 const upload = multer({ dest: 'static/uploads/' });
 const myData = require('./data/data.json');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 const PORT = 3000;
 const dbSleutel = process.env.MONGO_URI
 
@@ -52,9 +51,6 @@ app.post('/accountaangemaakt', (req, res) => {
                 } else {
                     console.log("wachtwoord is niet helzelfde")
                 }  
-                
-                // const salt = bcrypt.genSalt(10);
-                // newUser.password = bcrypt.hash(newUser.password, salt);
 
                 newUser.save()
                 return res.status(200).json({newUser})
@@ -69,19 +65,25 @@ app.post('/accountaangemaakt', (req, res) => {
 const data = JSON.parse(JSON.stringify(myData));
 const people = data.people;
 
+//Resource voor het inloggen https://www.youtube.com/watch?v=pzGQMwGmCnc
 app.post('/ingelogd', (req, res) => {
     try {
-        // database logic schrijven..
-        // res.send('Email: ' +req.body.email +' en wachtwoord: ' +req.body.password);
-        
-        const first = req.body.email == people[0].email & req.body.password == people[0].password;
-        const second = req.body.email == people[1].email & req.body.password == people[1].password;
+        const email = req.body.email;
+        const password = req.body.password;
 
-        if( first || second) {
-            res.send('Je bent ingelogd');  
-        } else {
-            res.send('Probeer het nog een keer');
-        }
+        User.findOne({email: email, password: password}, function(err, user){
+            if (err) {
+                console.log(err);
+                return res.status(500).send();
+            }
+
+            if(!user) {
+                return res.status(404).send();
+            }
+
+            //return res.status(200).send();
+            res.redirect('/ingelogd');
+        });
 
     } catch (error) {
         throw new Error(error);
@@ -104,6 +106,10 @@ app.get('/login', (req, res) => {
 
 app.get('/account', (req, res) => {
     res.render('account', {data, title: 'Account - BookBuddy'});
+});
+
+app.get('/ingelogd', (req, res) => {
+    res.render('ingelogd', {data, title: 'Ingelogd - BookBuddy'});
 });
 
 app.use((req, res, next) => {
