@@ -69,43 +69,43 @@ const errorMessagePass = document.querySelector('.messagepassword');
 // });
 
 //Login 
-const formLogin = document.querySelector('#formlogin');
+// const formLogin = document.querySelector('#formlogin');
 
-formLogin.addEventListener('submit', (event) => {
-    event.preventDefault();
+// formLogin.addEventListener('submit', (event) => {
+//     event.preventDefault();
 
-    const loginEmail = document.querySelector('#emaillogin');
-    const loginPass = document.querySelector('#passwordlogin');
+//     const loginEmail = document.querySelector('#emaillogin');
+//     const loginPass = document.querySelector('#passwordlogin');
 
-    //De else if en esle heb ik van https://codepen.io/FlorinPop17/pen/OJJKQeK
-    if (loginEmail.value.length = 0) {
-        console.log("Er is geen email ingeuld.");
-        loginEmail.classList.add('error');
-        errorMessageEmail.classList.add('errormessage');
-        errorMessageEmail.innerHTML = "Er is geen emailadres ingevuld.";
-    } else if (!isEmail(loginEmail.value)) {
-        console.log("Dit is geen geldig emailadres.");
-        loginEmail.classList.add('error');
-        errorMessageEmail.classList.add('errormessage');
-        errorMessageEmail.innerHTML = "Er is geen geldig emailadres ingevuld.";
-    } else {
-        console.log("Het emailadres is goed.");
-        errorMessageEmail.classList.remove('errormessage');
-        loginEmail.classList.remove('error');
-    }
+//     //De else if en esle heb ik van https://codepen.io/FlorinPop17/pen/OJJKQeK
+//     if (loginEmail.value.length = 0) {
+//         console.log("Er is geen email ingeuld.");
+//         loginEmail.classList.add('error');
+//         errorMessageEmail.classList.add('errormessage');
+//         errorMessageEmail.innerHTML = "Er is geen emailadres ingevuld.";
+//     } else if (!isEmail(loginEmail.value)) {
+//         console.log("Dit is geen geldig emailadres.");
+//         loginEmail.classList.add('error');
+//         errorMessageEmail.classList.add('errormessage');
+//         errorMessageEmail.innerHTML = "Er is geen geldig emailadres ingevuld.";
+//     } else {
+//         console.log("Het emailadres is goed.");
+//         errorMessageEmail.classList.remove('errormessage');
+//         loginEmail.classList.remove('error');
+//     }
 
-    if (loginPass.value.length != 0) {
-        console.log('Het wachtwoord is ingevuld');
-        loginPass.classList.remove('error');
-        errorMessagePass.classList.remove('errormessage');
-    } else if (loginPass.value.length == 0){
-        console.log("Wachtwoord mag niet leeg zijn");
-        errorMessagePass.classList.add('errormessage');
-        errorMessagePass.innerHTML = "Er is geen wachtwoord ingevuld.";
-        loginPass.classList.add('error');
-    } else {
-        console.log("Wachtwoord is niet correct");
-        errorMessagePass.classList.add('errormessage');
-        loginPass.classList.add('error');
-    }
-});
+//     if (loginPass.value.length != 0) {
+//         console.log('Het wachtwoord is ingevuld');
+//         loginPass.classList.remove('error');
+//         errorMessagePass.classList.remove('errormessage');
+//     } else if (loginPass.value.length == 0){
+//         console.log("Wachtwoord mag niet leeg zijn");
+//         errorMessagePass.classList.add('errormessage');
+//         errorMessagePass.innerHTML = "Er is geen wachtwoord ingevuld.";
+//         loginPass.classList.add('error');
+//     } else {
+//         console.log("Wachtwoord is niet correct");
+//         errorMessagePass.classList.add('errormessage');
+//         loginPass.classList.add('error');
+//     }
+// });
