@@ -9,16 +9,16 @@ const myData = require('./data/data.json');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const PORT = 3000;
-// const dbSleutel = process.env.MONGO_URI
+const dbSleutel = process.env.MONGO_URI
 
-// mongoose.connect(dbSleutel, {useNewURLParser: true})
-// .then(()=> console.log('Database is geconnect'))
-// .catch(err => console.log(err))
+mongoose.connect(dbSleutel, {useNewURLParser: true})
+.then(()=> console.log('Database is geconnect'))
+.catch(err => console.log(err))
 
-const connectDB = require('./config/connect');
+// const connectDB = require('./config/connect');
 const User = require('./models/User');
 
-connectDB(); 
+// connectDB(); 
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
