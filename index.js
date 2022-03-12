@@ -100,11 +100,10 @@ app.get('/login', (req, res) => {
 
 app.get('/account', async(req, res) => {
     try {
-        const dataUser = await User.find({});
-        // console.log(data.people[1].name);
-        // console.log(dataUser[1].name);
+        const dataUser = await User.find({name: "Pip"});
+        //console.log(data.people[1].name);
         res.render('account', {data: dataUser, title: 'Account - BookBuddy'})
-        
+        console.log(dataUser);
     } catch (error) {
         throw new Error(error);
     }
