@@ -1,26 +1,22 @@
-<main id="account">
+<main id="signup">
     {{>header}}
-
     <section>
-        {{ h1 }}
-        <table>
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Passwod</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                {{#each list}}
-                <tr>
-                    <td>{{this.username}}</td>
-                    <td>{{this.email}}</td>
-                    <td>{{this.password}}</td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+        {{#each data}}
+        <form action="/accountaangemaakt" method="POST" id="formsignup">
+            <fieldset>
+                <legend>Het account van ...</legend>
+                <label for="name">Naam</label>
+                <input type="text" name="name" id="name" value="">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" value="">
+                <label for="password">Wachtwoord</label>
+                <input type="password" name="password" id="password" value="">
+                <label for="confirm_password">Herhaal wachtwoord</label>
+                <input type="password" name="confirm_password" id="confirm_password">
+                <input type="submit" value="Opslaan" id="singup">
+            </fieldset> 
+        </form>
+        {{/each}}
     </section>
 </main>
+
