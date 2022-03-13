@@ -47,7 +47,7 @@ app.post('/accountaangemaakt', (req, res) => {
                 });
 
                 // console.log(newUser.name)
-                //newUser.save()
+                newUser.save()
                 // return res.status(200).json({newUser})
                 res.redirect('/account');
             }
@@ -100,9 +100,9 @@ app.get('/login', (req, res) => {
 
 app.get('/account', async(req, res) => {
     try {
-        const dataUser = await User.find({name: "Pip"});
+        const dataUser = await User.find({}).lean();
         //console.log(data.people[1].name);
-        res.render('account', {data: dataUser, title: 'Account - BookBuddy'})
+        res.render('account', {data : dataUser[0], title: 'Account - BookBuddy'})
         console.log(dataUser);
     } catch (error) {
         throw new Error(error);
