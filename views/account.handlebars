@@ -1,15 +1,15 @@
 <main id="signup">
     {{>header}}
     <section>
-        <form action="/accountaangemaakt" method="POST" id="formsignup">
+        <form action="/aangepast" method="POST" id="formsignup">
             <fieldset>
                 <legend>Het account van {{data.name}}</legend>
                 <label for="name">Naam</label>
-                <input type="text" name="name" id="name" value="">
+                <input type="text" name="name" id="name" value="{{data.name}}">
                 <label for="email">E-mail</label>
-                <input type="email" name="email" id="email" value="">
+                <input type="email" name="email" id="email" value="{{data.email}}">
                 <label for="password">Wachtwoord</label>
-                <input type="password" name="password" id="password" value="">
+                <input type="password" name="password" id="password" value="{{data.password}}">
                 <label for="confirm_password">Herhaal wachtwoord</label>
                 <input type="password" name="confirm_password" id="confirm_password">
                 <input type="submit" value="Opslaan" id="singup">

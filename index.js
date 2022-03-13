@@ -82,6 +82,16 @@ app.post('/ingelogd', (req, res) => {
     }
 });
 
+app.post('/aangepast', async (req, res) => {
+    try {
+        User.findOneAndUpdate({name: 'Pip'}, {name: 'Henk'});
+        const dataUser = await User.find({name: 'Pip'}).lean();
+        res.render('account', {data: dataUser});
+    } catch (error) {
+        throw new Error(error);
+    }
+});
+
 const data = JSON.parse(JSON.stringify(myData));
 const people = data.people;
 //console.log(people[0].name)
@@ -100,10 +110,12 @@ app.get('/login', (req, res) => {
 
 app.get('/account', async(req, res) => {
     try {
-        const dataUser = await User.find({}).lean();
+        const dataUser = await User.find({name: "Pip"}).lean();
         //console.log(data.people[1].name);
         res.render('account', {data : dataUser[0], title: 'Account - BookBuddy'})
         console.log(dataUser);
+
+
     } catch (error) {
         throw new Error(error);
     }
