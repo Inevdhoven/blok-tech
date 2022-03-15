@@ -80,7 +80,7 @@ const formLogin = document.querySelector('#formlogin');
 
 if(formLogin) {
     formLogin.addEventListener('submit', (event) => {
-        event.preventDefault();
+        //event.preventDefault();
 
         const loginEmail = document.querySelector('#emaillogin');
         const loginPass = document.querySelector('#passwordlogin');
