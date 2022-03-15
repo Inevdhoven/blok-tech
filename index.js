@@ -59,6 +59,7 @@ app.post('/accountaangemaakt', (req, res) => {
 
 //Resource https://www.youtube.com/watch?v=pzGQMwGmCnc
 app.post('/ingelogd', (req, res) => {
+    console.log('hallo')
     try {
         const email = req.body.email;
         const password = req.body.password;
@@ -84,8 +85,8 @@ app.post('/ingelogd', (req, res) => {
 
 app.post('/aangepast', async (req, res) => {
     try {
-        User.findOneAndUpdate({name: 'Pip'}, {name: 'Henk'});
-        const dataUser = await User.find({name: 'Pip'}).lean();
+        User.findOneAndUpdate({name: 'Ine'}, {name: 'Henk'});
+        const dataUser = await User.find({name: 'Ine'}).lean();
         res.render('account', {data: dataUser});
     } catch (error) {
         throw new Error(error);
@@ -110,7 +111,7 @@ app.get('/login', (req, res) => {
 
 app.get('/account', async(req, res) => {
     try {
-        const dataUser = await User.find({name: "Pip"}).lean();
+        const dataUser = await User.find({name: "Ine"}).lean();
         //console.log(data.people[1].name);
         res.render('account', {data : dataUser[0], title: 'Account - BookBuddy'})
         console.log(dataUser);
