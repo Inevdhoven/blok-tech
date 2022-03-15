@@ -2,9 +2,18 @@
 
 # blok-tech - Bookbuddy
 
-Voor blok tech ga ik een matching app genaamd Bookbuddy maken. In deze matching app kunnen mensen die van lezen houden andere mensen vinden die ook van lezen houden. Met de personen met wie je bent gematcht kun je chatten over het boek dat je nu aan het lezen bent, kun je boeken aan elkaar aanraden en samen je volgende boek lezen en deze bespreken. De feature die ik ga bouwen voor de matching app is de signup en login. Deze kun je dan ook hier vinden.
+Voor blok tech ga ik een matching app genaamd Bookbuddy maken. In deze matching app kunnen mensen die van lezen houden andere mensen vinden die ook van lezen houden. Met de personen met wie je bent gematcht kun je chatten over het boek dat je nu aan het lezen bent, kun je boeken aan elkaar aanraden en samen je volgende boek lezen en deze bespreken. De feature die ik voor deze matching app ga bouwen is de signup en login. Wanneer je bij signup een account aanmaakt kun je hiermee vervolgens inloggen. Wanneer je een account hebt aangemaakt of ben ingelogd word je doorverwezen naar een account pagina waar je dan je account kunt updaten.
 
 Bookbuddy is open source, waardoor iedereen er aan mee kan werken.
+
+Hier kun je zien hoe bookbuddy er nu uitziet:
+![Homepage Bookbuddy](https://github.com/Inevdhoven/blok-tech/blob/main/wiki_images/bookbuddy_home.png)
+
+![Signup Bookbuddy](https://github.com/Inevdhoven/blok-tech/blob/main/wiki_images/bookbuddy_signup.png)
+
+![Login Bookbuddy](https://github.com/Inevdhoven/blok-tech/blob/main/wiki_images/bookbuddy_login.png)
+
+![Account Bookbuddy](https://github.com/Inevdhoven/blok-tech/blob/main/wiki_images/bookbuddy_account.png)
 
 ## Hoe installeer je Bookbuddy
 
@@ -24,6 +33,12 @@ Dit is voor het installeren van alle packages die mijn repo gebruikt. Wanneer di
 
 ```
 npm run start
+```
+
+Dit project maakt gebruik van een database bij [MongoDB](https://www.mongodb.com/). Om je eigen database te connecten moet je een bestand .env aan maken met de volgende regel erin:
+
+```
+MONGO_URI=Hier de link naar je eigen database
 ```
 
 ## Documentatie/Wiki
