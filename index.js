@@ -13,9 +13,10 @@ mongoose.connect(dbSleutel, {useNewURLParser: true})
 .then(()=> console.log('Database is geconnect'))
 .catch(err => console.log(err))
 
-// const connectDB = require('./config/connect');
 const User = require('./models/User');
 
+//Regelt connectie met database via config/connect.js
+// const connectDB = require('./config/connect'); 
 // connectDB(); 
 
 app.engine('handlebars', engine());
@@ -59,7 +60,6 @@ app.post('/accountaangemaakt', (req, res) => {
 
 //Resource https://www.youtube.com/watch?v=pzGQMwGmCnc
 app.post('/ingelogd', (req, res) => {
-    console.log('hallo')
     try {
         const email = req.body.email;
         const password = req.body.password;
@@ -75,7 +75,7 @@ app.post('/ingelogd', (req, res) => {
             }
 
             //return res.status(200).send();
-            res.redirect('/ingelogd');
+            res.redirect('/account');
         });
 
     } catch (error) {
@@ -93,26 +93,25 @@ app.post('/aangepast', async (req, res) => {
     }
 });
 
-const data = JSON.parse(JSON.stringify(myData));
-const people = data.people;
+// const data = JSON.parse(JSON.stringify(myData));
+// const people = data.people;
 //console.log(people[0].name)
 
 app.get('/', (req, res) => {
-    res.render('home', {data, title: 'BookBuddy'});
+    res.render('home', {title: 'BookBuddy'});
 });
 
 app.get('/signup', (req, res) => {
-    res.render('signup', {data, title: 'Signup - BookBuddy'});
+    res.render('signup', {title: 'Signup - BookBuddy'});
 });
 
 app.get('/login', (req, res) => {
-    res.render('login', {data, title: 'Login - BookBuddy'});
+    res.render('login', {title: 'Login - BookBuddy'});
 });
 
 app.get('/account', async(req, res) => {
     try {
         const dataUser = await User.find({name: "Ine"}).lean();
-        //console.log(data.people[1].name);
         res.render('account', {data : dataUser[0], title: 'Account - BookBuddy'})
         console.log(dataUser);
 
@@ -122,9 +121,9 @@ app.get('/account', async(req, res) => {
     }
 }); 
 
-app.get('/ingelogd', (req, res) => {
-    res.render('ingelogd', {data, title: 'Ingelogd - BookBuddy'});
-});
+// app.get('/ingelogd', (req, res) => {
+//     res.render('ingelogd', {title: 'Ingelogd - BookBuddy'});
+// });
 
 app.use((req, res, next) => {
     res.status(404).send('404 page not found');
