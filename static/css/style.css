@@ -1,3 +1,4 @@
+/* De variabelen die je in dit project kunt gebruiken */
 :root {
     --bleu-gray: #EFF2F1;
     --turquoise: #08BDBD;
@@ -9,6 +10,7 @@
     --base-font: cardea-lining, serif;
 }
 
+/* Algemene code voor heel het project */
 *, *::after, *::before {
     box-sizing: border-box;
     margin: 0;
@@ -167,6 +169,8 @@ input[type="submit"] {
     float: right;
 }
 
+/* Specifiek voor de signup pagina */
+
 /* #signup form {
     margin-top: 200px;
 } */
@@ -235,6 +239,7 @@ input[type="submit"] {
     margin-bottom: 1em;
 }
 
+/* Code specifiek voor de signup en login pagina */
 #signup form fieldset:first-child p,
 #login form p{
     display: none;
