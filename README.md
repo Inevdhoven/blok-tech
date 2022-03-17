@@ -30,16 +30,16 @@ Wanneer je mijn repo hebt gecloned moet je de volgende code in de terminal typen
 npm install
 ```
 
-Dit is voor het installeren van alle packages die mijn repo gebruikt. Wanneer dit allemaal is geinstalleerd kun je BookBuddy runnen op je localhost door het volgende in te typen:
-
-```
-npm run start
-```
-
 Dit project maakt gebruik van een database bij [MongoDB](https://www.mongodb.com/). Om je eigen database te connecten moet je een bestand .env aan maken met de volgende regel erin:
 
 ```
 MONGO_URI=Hier de link naar je eigen database
+```
+
+Dit is voor het installeren van alle packages die mijn repo gebruikt. Wanneer dit allemaal is geinstalleerd kun je BookBuddy runnen op je localhost door het volgende in te typen:
+
+```
+npm run start
 ```
 
 ## Documentatie/Wiki
