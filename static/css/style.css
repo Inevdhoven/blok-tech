@@ -141,8 +141,8 @@ input {
     padding: 0 10px;
     border: none;
     border-radius: 10px;
-    display: block;
     margin-bottom: 1em;
+    display: block;
 }
 
 input:active, input:focus {
