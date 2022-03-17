@@ -5,7 +5,7 @@ const { engine } = require('express-handlebars');
 const bodyParser = require('body-parser');
 const myData = require('./data/data.json');
 const mongoose = require('mongoose');
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const dbSleutel = process.env.MONGO_URI;
 
 //Regelt connectie met database
