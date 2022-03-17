@@ -54,7 +54,7 @@ app.post('/accountaangemaakt', (req, res) => {
                 // console.log(newUser.name)
                 newUser.save();
                 // return res.status(200).json({newUser})
-                res.redirect('/account');
+                return res.redirect('/account');
             }
         });
     } catch (error) {
@@ -80,7 +80,7 @@ app.post('/ingelogd', (req, res) => {
             }
 
             // return res.status(200).send();
-            res.redirect('/account');
+            return res.redirect('/account');
         });
     } catch (error) {
         throw new Error(error);
