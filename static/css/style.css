@@ -19,6 +19,15 @@
 
 body {
     background: var(--bleu-gray);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 body::before {
@@ -60,41 +69,74 @@ a, input[type="submit"] {
     height: 45px;
     border: none;
     border-radius: 0.5em;
-    display: flex;
     margin-right: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-family: var(--title-font);
     font-weight: 600;
     font-size: 1em;
     color: var(--white);
     text-decoration: none;
+    -webkit-transition: 250ms ease-in;
+    -o-transition: 250ms ease-in;
+    transition: 250ms ease-in;
+    cursor: pointer;
 }
 
 input[type="submit"]:focus {
     border: none;
 }
 
-main {
-    display: flex;
+a:hover, input[type="submit"]:hover {
+    background-color: var(--dark-blue);
 }
 
-section {
+header, main {
     max-width: calc(50% - 50px);
     width: 100%;
     height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
 }
 
-section:first-of-type {
-    position: fixed;
+header p {
+    display: block;
+    font-family: var(--title-font);
+    font-size: 1.2em;
+    font-weight: 900;
+    color: var(--red);
 }
 
-section:last-of-type {
-    position: absolute;
-    right: 0;
+header p span {
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+main section {
+    width: 70%;
 }
 
 div, form {
@@ -104,7 +146,10 @@ div, form {
     width: 100%;
     padding: 3em 2.5em;
     border-radius: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
@@ -120,6 +165,13 @@ div a {
 a:last-child {
     background-color: transparent;
     color: var(--red);
+    -webkit-transition: 250ms ease-in;
+    -o-transition: 250ms ease-in;
+    transition: 250ms ease-in;
+}
+
+a:last-child:hover {
+    color: var(--dark-blue);
 }
 
 fieldset {
@@ -170,21 +222,19 @@ input[type="submit"] {
 }
 
 /* Specifiek voor de signup pagina */
-
-/* #signup form {
-    margin-top: 200px;
-} */
-
-/* #signup fieldset:last-child legend {
-    display: none; 
-} */
-
 #signup fieldset:nth-child(2) {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
 #signup fieldset:nth-child(2) legend {
@@ -206,8 +256,14 @@ input[type="submit"] {
     padding: 1em 1.3em;
     border-radius: 10px;
     margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     text-align: center;
 }
