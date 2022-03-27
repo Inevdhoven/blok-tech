@@ -1,4 +1,19 @@
 {{>header}}
-<main id="ingelogd">
-    
+<main id="signup">
+    <section>
+        <form action="/account" method="POST" id="formsignup">
+            <fieldset>
+                <legend>Het account van {{name}}</legend>
+                <label for="name">Naam</label>
+                <input type="text" name="name" id="name" value="{{name}}">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" value="{{email}}">
+                <label for="password">Wachtwoord</label>
+                <input type="password" name="password" id="password" value="{{password}}">
+                <label for="confirm_password">Herhaal wachtwoord</label>
+                <input type="password" name="confirm_password" id="confirm_password">
+                <input type="submit" value="Opslaan" id="singup">
+            </fieldset> 
+        </form>
+    </section>
 </main>
