@@ -297,13 +297,21 @@ input[type="submit"] {
 
 /* Code specifiek voor de signup en login pagina */
 #signup form fieldset:first-child p,
-#login form p{
+#login form p,
+#account form p {
     display: none;
 }
 
 #signup form fieldset:first-child p.errormessage,
-#login form p.errormessage {
+#login form p.errormessage,
+#account form p.errormessage {
     margin-bottom: 10px;
+    display: block;
+    color: var(--red);
+}
+
+#login p.message {
+    margin-top: 16px;
     display: block;
     color: var(--red);
 }
