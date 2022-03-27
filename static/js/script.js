@@ -1,5 +1,5 @@
 // Of email correct is of niet
-// De function isEmail heb ik van https://codepen.io/FlorinPop17/pen/OJJKQeK
+// Source https://codepen.io/FlorinPop17/pen/OJJKQeK
 function isEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
@@ -75,10 +75,21 @@ if (formSignup) {
 
 // Login
 const formLogin = document.querySelector('#formlogin');
-const loginEmail = document.querySelector('#emaillogin');
-const loginPass = document.querySelector('#passwordlogin');
+const loginEmail = document.querySelector('#formlogin #email');
+const loginPass = document.querySelector('#formlogin #password');
 
 if (formLogin) {
+
+    // Source https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+    const urlParams = new URLSearchParams(window.location.search);
+    const emailParam = urlParams.get('email');
+
+    if(emailParam) {
+        loginEmail.value = emailParam;
+    }
+
+    console.log(myParam);
+    
     formLogin.addEventListener('submit', (event) => {
         if (isEmail(loginEmail.value) && loginPass.value.length != 0) {
             console.log('Volgensmij werkt het!!!');
@@ -120,6 +131,73 @@ if (formLogin) {
     });
 }
 
+// Account
+const formAccount = document.querySelector('#formaccount');
+
+if (formAccount) {
+    formAccount.addEventListener('submit', (event) => {
+        const accountName = document.querySelector('#formaccount #name');
+        const accountEmail = document.querySelector('#formaccount #email');
+        const accountPass = document.querySelector('#formaccount #password');
+        const accountConfirmPass = document.querySelector('#formaccount #confirm_password');
+
+        if (accountName.value.length != 0 && isEmail(accountEmail.value) && accountPass.value.length != 0 && accountPass.value == accountConfirmPass.value) {
+            console.log('Het werkt denk ik');
+        } else {
+            event.preventDefault();
+
+            if (accountName.value.length != 0) {
+                console.log('Er is een naam ingevuld.');
+                errorMessageName.classList.remove('errormessage');
+                accountName.classList.remove('error');
+            } else {
+                console.log('Er is geen naam ingevuld.');
+                accountName.classList.add('error');
+                errorMessageName.classList.add('errormessage');
+                errorMessageName.innerHTML = 'Er is geen naam ingevuld.';
+            }
+
+            // De else if en esle heb ik van https://codepen.io/FlorinPop17/pen/OJJKQeK
+            if (accountEmail.value.length == 0) {
+                console.log('Er is geen email ingeuld.');
+                accountEmail.classList.add('error');
+                errorMessageEmail.classList.add('errormessage');
+                errorMessageEmail.innerHTML = 'Er is geen emailadres ingevuld.';
+            } else if (!isEmail(accountEmail.value)) {
+                console.log('Dit is geen geldig emailadres.');
+                accountEmail.classList.add('error');
+                errorMessageEmail.classList.add('errormessage');
+                errorMessageEmail.innerHTML = 'Er is geen geldig emailadres ingevuld.';
+            } else {
+                console.log('Het emailadres is goed.');
+                errorMessageEmail.classList.remove('errormessage');
+                accountEmail.classList.remove('error');
+            }
+
+            if (accountPass.value.length != 0) {
+                if (accountPass.value == accountConfirmPass.value) {
+                    console.log('je wachwoord is hetzelfde');
+                    errorMessagePass.classList.remove('errormessage');
+                    accountPass.classList.remove('error');
+                    accountConfirmPass.classList.remove('error');
+                } else {
+                    console.log('je wachtwoord is niet gelijk');
+                    accountPass.classList.add('error');
+                    accountConfirmPass.classList.add('error');
+                    errorMessagePass.classList.add('errormessage');
+                }
+            } else {
+                console.log('wachtwoord mag niet leeg zijn');
+                errorMessagePass.classList.add('errormessage');
+                errorMessagePass.innerHTML = 'Er is geen wachtwoord ingevuld.';
+                accountPass.classList.add('error');
+                accountConfirmPass.classList.add('error');
+            }
+        }
+    });
+}
+
+
 // API inladen
 const apiUrl = 'https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=Rao7HzLIKiqlUtqMI0I0WS1sOGfmDfjO';
  
@@ -128,15 +206,17 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-// Defining async function
 async function getApi(url) {
     
-    // Storing response
+    // Zorgen dat de url word opgehaald met daarin de data uit de API
     const response = await fetch(url);
     
-    // Storing data in form of JSON
+    // Zorgen dat wat er in de response zit word opgeslagen in JSON
     const data = await response.json();
     console.log(data);
+
+    // Wanneer er een response is worden er titles gezocht van boeken
+    // Deze titels worden via innerHTML laten zien op de pagina
     if (response) {
         const bookTip = document.querySelector('header p span:first-of-type');
         const titleBook = data.results.lists[17].books[getRandomInt(10)].title;
