@@ -1,18 +1,21 @@
 {{>header}}
-<main id="signup">
+<main id="account">
     <section>
-        <form action="/aangepast" method="POST" id="formsignup">
+        <form action="/update" method="POST" id="formaccount">
             <fieldset>
-                <legend>Het account van {{data.name}}</legend>
+                <legend>Het account van {{name}}</legend>
                 <label for="name">Naam</label>
-                <input type="text" name="name" id="name" value="{{data.name}}">
+                <input type="text" name="name" id="name" value="{{name}}">
+                <p class="messagename">Er is geen naam ingevuld.</p>
                 <label for="email">E-mail</label>
-                <input type="email" name="email" id="email" value="{{data.email}}">
+                <input type="email" name="email" id="email" value="{{email}}">
+                <p class="messageemail">Er is geen geldig emailadres ingevuld.</p>
                 <label for="password">Wachtwoord</label>
-                <input type="password" name="password" id="password" value="{{data.password}}">
+                <input type="password" name="password" id="password">
                 <label for="confirm_password">Herhaal wachtwoord</label>
                 <input type="password" name="confirm_password" id="confirm_password">
-                <input type="submit" value="Opslaan" id="singup">
+                <p class="messagepassword">Het wachtwoord dat is ingevuld is niet hetzelfde.</p>
+                <input type="submit" value="Opslaan" id="opslaan">
             </fieldset> 
         </form>
     </section>
